@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 <!-- <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> -->
 
-    <title>YXC-User-Admin</title>
+    <title>YXC-EMS-Admin</title>
   {[ template "admin/head.html" .]}
 </head>
 <body class="layui-layout-body">
@@ -22,32 +22,9 @@
   {[ template "admin/body.html" .]}
 </div>
 
-<!-- jQuery and JavaScript Bundle with Popper -->
-<!--<script src="/static/assets/layui/rc/layui.js?t=1.4.0"></script>-->
-<link rel="stylesheet" href="/static/assets/layuiadmin/layui/css/layui.css" media="all">
-<link rel="stylesheet" href="/static/assets/layuiadmin/style/admin.css" media="all">
-<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
-<!-- 引入组件库 -->
-<!-- <script src="https://unpkg.com/element-ui/lib/index.js"></script> -->
+    {[ template "admin/script.html" .]}
 
-<!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.2/js/bootstrap.bundle.min.js" integrity="sha384-7ymO4nGrkm372HoSbq1OY2DP4pEZnMiA+E0F3zPr+JQQtQ82gQ1HPY3QIVtztVua" crossorigin="anonymous"></script> -->
-<script src="/static/assets/layuiadmin/layui/layui.js"></script>
 
-<script>
-  /*  var app = new Vue({
-        el: '#app',
-        data: {
-            message: 'Hello Vue!'
-        }
-    }) */
-    layui.config({
-        base: '/static/assets/layuiadmin/' //静态资源所在路径
-      }).extend({
-        index: 'lib/index' //主入口模块
-      }).use('index');
-
-</script>
 
 {[ template "admin/footer.html" .]}
 

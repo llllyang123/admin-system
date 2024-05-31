@@ -48,6 +48,10 @@ func workOrderListForm(c *gin.Context) {
 	c.HTML(http.StatusOK, "admin/work_order_list_form.html", gin.H{"title": "adminWorkOrderListForm"})
 }
 
+func console(c *gin.Context) {
+	c.HTML(http.StatusOK, "admin/console.html", gin.H{"title": "adminConsole"})
+}
+
 func login(c *gin.Context) {
 	fmt.Println("login: login/admin.html")
 	c.HTML(http.StatusOK, "login/admin.html", gin.H{"title": "管理系统登陆页面"})

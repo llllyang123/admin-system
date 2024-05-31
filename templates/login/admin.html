@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="/static/assets/layuiadmin/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="/static/assets/layuiadmin/style/admin.css" media="all">
     <link rel="stylesheet" href="/static/assets/layuiadmin/style/login.css" media="all">
+    <style>
+        .label-tip {
+            height: 10px;
+            line-height: 24px;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
 
@@ -24,10 +31,12 @@
             <div class="layui-form-item">
                 <label class="layadmin-user-login-icon layui-icon layui-icon-username" for="LAY-user-login-username"></label>
                 <input type="text" name="username" id="LAY-user-login-username" lay-verify="required" placeholder="用户名" class="layui-input">
+                <div class="label-tip">default: admin</div>
             </div>
             <div class="layui-form-item">
                 <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
                 <input type="password" name="password" id="LAY-user-login-password" lay-verify="required" placeholder="密码" class="layui-input">
+                <div class="label-tip">default: 123456</div>
             </div>
 <!--            <div class="layui-form-item">-->
 <!--                <div class="layui-row">-->
