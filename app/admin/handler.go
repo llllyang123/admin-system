@@ -3,6 +3,7 @@ package admin
 import (
 	"fmt"
 	"net/http"
+	"user-admin/app/admin/controller"
 	"user-admin/utils"
 
 	"github.com/gin-gonic/gin"
@@ -15,8 +16,9 @@ func helloHandler(c *gin.Context) {
 }
 
 func index(c *gin.Context) {
-	one := c.Query("one")
-	two := c.Query("two")
+	//one := c.Query("one")
+	//two := c.Query("two")
+	one, two := controller.Index(c)
 	c.HTML(http.StatusOK, "admin/index.html", gin.H{"title": "adminIndex", "one": one, "two": two})
 }
 
