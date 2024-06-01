@@ -4,18 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta content="width=device-width,initial-scale=1.0" name="viewport" />
-    <!-- import CSS -->
-    <link href="/static/assets/css/index.css" rel="stylesheet">
-    <!-- import JavaScript -->
-<!-- CSS -->
-<!-- 引入样式 -->
-<link rel="stylesheet" href="/static/assets/layui/rc/css/layui.css?t=1.4.0" media="all">
-<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-<!-- <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> -->
-
     <title>YXC-EMS-Admin</title>
-  {[ template "admin/head.html" .]}
+    {[ template "admin/header.html" .]}
 </head>
+
 <body class="layui-layout-body">
 
 <div id="LAY_app">
@@ -24,7 +16,15 @@
 
     {[ template "admin/script.html" .]}
 
+<script>
+    layui.config({
+        base: '/static/assets/layuiadmin/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use('index');
 
+
+</script>
 
 {[ template "admin/footer.html" .]}
 

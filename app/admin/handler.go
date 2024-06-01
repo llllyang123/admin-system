@@ -54,6 +54,10 @@ func console(c *gin.Context) {
 	c.HTML(http.StatusOK, "admin/console.html", gin.H{"title": "adminConsole"})
 }
 
+func userInfo(c *gin.Context) {
+	c.HTML(http.StatusOK, "admin/user_info.html", gin.H{"title": "adminUserInfo"})
+}
+
 func login(c *gin.Context) {
 	fmt.Println("login: login/admin.html")
 	c.HTML(http.StatusOK, "login/admin.html", gin.H{"title": "管理系统登陆页面"})
