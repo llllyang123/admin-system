@@ -20,8 +20,8 @@ type User struct {
 	//Birthday     *time.Time     // A pointer to time.Time, can be null
 	//MemberNumber sql.NullString // Uses sql.NullString to handle nullable strings
 	//ActivatedAt  sql.NullTime   // Uses sql.NullTime for nullable time fields
-	Time   time.Time // Automatically managed by GORM for creation time
-	UpTime time.Time // Automatically managed by GORM for update time
+	CreatTime time.Time // Automatically managed by GORM for creation time
+	UpTime    time.Time // Automatically managed by GORM for update time
 }
 
 var Session sessions.Session

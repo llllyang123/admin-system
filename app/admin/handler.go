@@ -58,6 +58,22 @@ func userInfo(c *gin.Context) {
 	c.HTML(http.StatusOK, "admin/user_info.html", gin.H{"title": "adminUserInfo"})
 }
 
+func salaryList(c *gin.Context) {
+	c.HTML(http.StatusOK, "admin/salary_list.html", gin.H{"title": "adminPersonalList"})
+}
+
+func performanceList(c *gin.Context) {
+	c.HTML(http.StatusOK, "admin/performance_list.html", gin.H{"title": "adminPersonalList"})
+}
+
+func leaveList(c *gin.Context) {
+	c.HTML(http.StatusOK, "admin/leave_list.html", gin.H{"title": "adminPersonalList"})
+}
+
+func attendanceList(c *gin.Context) {
+	c.HTML(http.StatusOK, "admin/attendance_list.html", gin.H{"title": "adminPersonalList"})
+}
+
 func login(c *gin.Context) {
 	fmt.Println("login: login/admin.html")
 	c.HTML(http.StatusOK, "login/admin.html", gin.H{"title": "管理系统登陆页面"})

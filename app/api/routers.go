@@ -23,6 +23,8 @@ func MiddleWare() gin.HandlerFunc {
 // Routers
 func Routers(e *gin.Engine) {
 	e.GET("/api/login", MiddleWare(), login)
-	e.GET("/api", MiddleWare(), helloHandler)
 	e.GET("/checkout", helloHandler)
+	e.GET("/api/test", test)
+	e.POST("/api/edit_user_info", editUserInfo)
+	e.GET("/api", MiddleWare(), helloHandler)
 }

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"strings"
+	apiController "user-admin/app/api/controller"
 	"user-admin/database"
 	"user-admin/utils"
 
@@ -19,6 +20,36 @@ var DB, nil = database.NewGormDB("database.db")
 func helloHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": "Hello www.topgoer.com",
+	})
+}
+
+func test(c *gin.Context) {
+	userInfo, count, _ := apiController.Test()
+	fmt.Printf("json - userInfo: %d, count: %d", userInfo, count)
+	c.JSON(http.StatusOK, gin.H{
+		"code":  0,
+		"data":  userInfo,
+		"count": count,
+		"msg":   "success",
+	})
+}
+
+func editUserInfo(c *gin.Context) {
+	status, err := apiController.EditUserInfo(c)
+	code := 0
+	msg := "success"
+	if !status {
+		code = 10000
+		msg = "error"
+	}
+	if err != "" {
+		msg = err
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"code":  code,
+		"data":  []string{},
+		"count": 1,
+		"msg":   msg,
 	})
 }
 
