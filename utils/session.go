@@ -30,7 +30,7 @@ func Init(c *gin.Context) {
 	Session = sessions.Default(c)
 }
 
-func SessionUp(users []User, c *gin.Context) {
+func SessionUp(users User, c *gin.Context) {
 	gap := int64(60 * 60 * 24) // 单位 秒
 	fmt.Println("gap: ", gap)
 	fmt.Println("gap: ", gap)
@@ -40,12 +40,12 @@ func SessionUp(users []User, c *gin.Context) {
 	//userid := fmt.Sprintf("%v", users[0].Id)
 	newTime := time.Now().Unix()
 	if Session.Get("session_time") == nil || Session.Get("userId") == nil {
-		if string(users[0].Id) != "" {
+		if string(users.Id) != "" {
 			Session.Set("session_time", newTime+gap)
 
-			Session.Set("userId", users[0].Id)
+			Session.Set("userId", users.Id)
 		} else {
-			fmt.Println("userID为空", users[0])
+			fmt.Println("userID为空", users)
 		}
 	} else {
 		sessionTime := Session.Get("session_time")

@@ -17,7 +17,7 @@ func Middleware() gin.HandlerFunc {
 		user = utils.Redis.Get(context.Background(), "user")
 		fmt.Println("redis_user_new:", user)
 		// 暂时关闭校验方便开发
-		return
+		//return
 		fmt.Println("admin中间件开始执行了")
 		t := time.Now()
 		c.Set("request", "中间件")

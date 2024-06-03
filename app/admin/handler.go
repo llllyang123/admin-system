@@ -55,7 +55,35 @@ func console(c *gin.Context) {
 }
 
 func userInfo(c *gin.Context) {
-	c.HTML(http.StatusOK, "admin/user_info.html", gin.H{"title": "adminUserInfo"})
+	userinfo, err := controller.UserInfo()
+	if err {
+		fmt.Println(err)
+	}
+	c.HTML(http.StatusOK, "admin/user_info.html",
+		gin.H{
+			"title":    "adminUserInfo",
+			"username": userinfo.UserName,
+			"nickname": userinfo.NickName,
+			"avatar":   userinfo.Avatar,
+			"email":    userinfo.Email,
+			"phone":    userinfo.Phone,
+			"sex":      userinfo.Sex,
+		})
+}
+
+func updateUserInfo(c *gin.Context) {
+	_, err := controller.UpdateUserInfo(c)
+	code := 0
+	msg := "success"
+	if err != "" {
+		fmt.Println(err)
+		code = 10000
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"code": code,
+		"data": []string{},
+		"msg":  msg,
+	})
 }
 
 func salaryList(c *gin.Context) {

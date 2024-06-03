@@ -61,7 +61,7 @@ func login(c *gin.Context) {
 	}
 
 	userInfo := &UserInfo{}
-	var users []utils.User
+	var users utils.User
 
 	if err := c.ShouldBind(&userInfo); err == nil {
 		userName := strings.TrimSpace(userInfo.UserName)
@@ -71,10 +71,10 @@ func login(c *gin.Context) {
 			fmt.Println(user.Error)
 			return
 		}
-		for _, user := range users {
-			fmt.Printf("ID: %d, Name: %s,", user.Id, user.UserName)
-		}
-		if utils.MD5(users[0].Password) == utils.MD5(userInfo.Password) {
+		//for _, user := range users {
+		//	fmt.Printf("ID: %d, Name: %s,", user.Id, user.UserName)
+		//}
+		if utils.MD5(users.Password) == utils.MD5(userInfo.Password) {
 			utils.SessionUp(users, c)
 			c.JSON(http.StatusOK, gin.H{
 				"code": 0,

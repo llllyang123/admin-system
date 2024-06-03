@@ -18,7 +18,7 @@ func main() {
 	r := routers.Init()
 
 	//数据库连接
-	admin.Main()
+	utils.Main()
 
 	fmt.Println("Click open web: http://127.0.0.1:8001")
 	// Listen and serve on 0.0.0.0:8080

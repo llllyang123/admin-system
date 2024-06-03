@@ -12,6 +12,7 @@ type UserInfo struct {
 	Id        uint `gorm:"primaryKey"`
 	UserName  string
 	NickName  string
+	Avatar    string
 	Email     string
 	Password  string
 	Salt      string
@@ -26,6 +27,7 @@ type UserInfoGet struct {
 	Id        uint
 	UserName  string
 	NickName  string
+	Avatar    string
 	Email     string
 	Sex       string
 	CreatTime time.Time
