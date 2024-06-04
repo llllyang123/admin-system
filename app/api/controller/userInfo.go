@@ -1,9 +1,11 @@
 package apiController
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"user-admin/app/admin"
 	model2 "user-admin/app/admin/model"
+	"user-admin/utils"
 )
 
 func init() {
@@ -42,4 +44,22 @@ func EditUserInfo(c *gin.Context) (bool, string) {
 		return false, err.Error()
 	}
 	return true, ""
+}
+
+func GetUserSalaryInfo(c *gin.Context) (model2.UserInfo, bool) {
+	getUserId := c.Query("job_id")
+	var userMode model2.UserInfo
+	db := utils.DB
+	if getUserId != "" {
+		userInfo := db.Where("job_id = ? AND is_delete = ?", getUserId, 0).First(&userMode)
+		fmt.Println("userMode", userMode)
+		if userInfo.Error == nil {
+			return userMode, false
+		} else {
+			return userMode, true
+		}
+	} else {
+		return userMode, false
+	}
+
 }

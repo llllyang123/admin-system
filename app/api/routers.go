@@ -26,5 +26,8 @@ func Routers(e *gin.Engine) {
 	e.GET("/checkout", helloHandler)
 	e.GET("/api/test", test)
 	e.POST("/api/edit_user_info", editUserInfo)
+	e.GET("/api/get_user_salary_info", getUserSalaryInfo)
+	e.GET("/api/get_salary_list", getSalaryList)
+	e.POST("/api/add_salary", addSalary)
 	e.GET("/api", MiddleWare(), helloHandler)
 }

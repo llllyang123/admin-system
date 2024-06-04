@@ -34,6 +34,36 @@ func test(c *gin.Context) {
 	})
 }
 
+func getUserSalaryInfo(c *gin.Context) {
+	userInfo, err := apiController.GetUserSalaryInfo(c)
+	if !err {
+		type SalaryInfo struct {
+			JobId       uint
+			Salary      float64
+			BasicSalary float64
+			NickName    string
+		}
+		var salaryInfo SalaryInfo
+		salaryInfo.JobId = userInfo.JobId
+		salaryInfo.Salary = userInfo.Salary
+		salaryInfo.BasicSalary = userInfo.BasicSalary
+		salaryInfo.NickName = userInfo.NickName
+		c.JSON(http.StatusOK, gin.H{
+			"code":  0,
+			"data":  salaryInfo,
+			"count": 1,
+			"msg":   "success",
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"code":  10000,
+			"data":  []string{},
+			"count": 0,
+			"msg":   "error",
+		})
+	}
+}
+
 func editUserInfo(c *gin.Context) {
 	status, err := apiController.EditUserInfo(c)
 	code := 0
@@ -51,6 +81,34 @@ func editUserInfo(c *gin.Context) {
 		"count": 1,
 		"msg":   msg,
 	})
+}
+
+func getSalaryList(c *gin.Context) {
+	dataList, count, _, _ := apiController.GetSalaryList(c)
+	c.JSON(http.StatusOK, gin.H{
+		"code":  0,
+		"data":  dataList,
+		"count": count,
+		"msg":   "success",
+	})
+}
+
+func addSalary(c *gin.Context) {
+	_, err, types := apiController.AddSalaryList(c)
+	if err == nil {
+		msg := "success"
+		code := 0
+		if types == 1 {
+			code = 10000
+			msg = "已对该员工所在月份发过工资或者该员工不存在"
+		}
+		c.JSON(http.StatusOK, gin.H{
+			"code":  code,
+			"data":  []string{},
+			"count": 1,
+			"msg":   msg,
+		})
+	}
 }
 
 func login(c *gin.Context) {

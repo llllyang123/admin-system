@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>user-info</title>
+    <title>user-salary</title>
     {[ template "admin/header.html" .]}
 </head>
 <body>
@@ -13,33 +13,28 @@
         <div class="layui-form layui-card-header layuiadmin-card-header-auto">
             <div class="layui-form-item">
                 <div class="layui-inline">
-                    <label class="layui-form-label">文章ID</label>
+                    <label class="layui-form-label">员工工号</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="id" placeholder="请输入" autocomplete="off" class="layui-input">
+                        <input type="text" name="job_id" placeholder="请输入" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
-                    <label class="layui-form-label">作者</label>
+                    <label class="layui-form-label">查询月份</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="author" placeholder="请输入" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-inline">
-                    <label class="layui-form-label">标题</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="title" placeholder="请输入" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-inline">
-                    <label class="layui-form-label">文章标签</label>
-                    <div class="layui-input-inline">
-                        <select name="label">
-                            <option value="">请选择标签</option>
-                            <option value="0">美食</option>
-                            <option value="1">新闻</option>
-                            <option value="2">八卦</option>
-                            <option value="3">体育</option>
-                            <option value="4">音乐</option>
+                        <select name="month" lay-verify="required">
+                            <option value="">请选择月份</option>
+                            <option value="1">一月份</option>
+                            <option value="2">二月份</option>
+                            <option value="3">三月份</option>
+                            <option value="4">四月份</option>
+                            <option value="5">五月份</option>
+                            <option value="6">六月份</option>
+                            <option value="7">七月份</option>
+                            <option value="8">八月份</option>
+                            <option value="9">九月份</option>
+                            <option value="10">十月份</option>
+                            <option value="11">十一月份</option>
+                            <option value="12">十二月份</option>
                         </select>
                     </div>
                 </div>
@@ -53,8 +48,8 @@
 
         <div class="layui-card-body">
             <div style="padding-bottom: 10px;">
-                <button class="layui-btn layuiadmin-btn-list" data-type="batchdel">删除</button>
-                <button class="layui-btn layuiadmin-btn-list" data-type="add">添加</button>
+<!--                <button class="layui-btn layuiadmin-btn-list" data-type="batchdel">删除</button>-->
+                <button class="layui-btn layuiadmin-btn-list" data-type="add">发工资</button>
             </div>
             <table id="LAY-app-content-list" lay-filter="LAY-app-content-list"></table>
             <script type="text/html" id="buttonTpl">
@@ -118,8 +113,8 @@
             add: function(){
                 layer.open({
                     type: 2
-                    ,title: '添加文章'
-                    ,content: 'listform.html'
+                    ,title: '发工资'
+                    ,content: 'list_form'
                     ,maxmin: true
                     ,area: ['550px', '550px']
                     ,btn: ['确定', '取消']
